@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!--// This file is made by EmJey-->
+<!--// Project: Workbook 2.2-->
+<!--// FileName: ShowCase-->
+<!--// Date: 2023/09/11-->
+<!--// Email: emjeydev@gmail.com-->
+<!--// Github: emjeydev-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Case</title>
+</head>
+<body>
+
+    <h2>IMDB: Top 5 Episodes</h2>
+    <table width="100%" , border="solid">
+        <tr>
+            <th>Title</th>
+            <th>Episode</th>
+            <th>Rating</th>
+        </tr>
+        <tr>
+            <td th:text="${sc1.title}">Breaking Bad</td>
+            <td th:text="${sc1.episode}">Ozymandias</td>
+            <td th:text="${sc1.title}">10.0</td>
+        </tr>
+        <tr>
+            <td th:text="${sc2.title}">Attack on Titan</td>
+            <td th:text="${sc2.episode}">Hero</td>
+            <td th:text="${sc2.title}">9.9</td>
+        </tr>
+        <tr>
+            <td th:text="${sc3.title}">Attack on Titan</td>
+            <td th:text="${sc3.episode}">Perfect Game</td>
+            <td th:text="${sc3.title}">9.9</td>
+        </tr>
+        <tr>
+            <td th:text="${sc4.title}">Star Wars: The Clone Wars</td>
+            <td th:text="${sc4.episode}">Victory and Death</td>
+            <td th:text="${sc4.title}">9.9</td>
+        </tr>
+        <tr>
+            <td th:text="${sc5.title}">Mr. Robot</td>
+            <td th:text="${sc5.episode}">407 Proxy Authentication Required</td>
+            <td th:text="${sc5.title}">9.9</td>
+        </tr>
+    </table>
+
+</body>
+</html>
