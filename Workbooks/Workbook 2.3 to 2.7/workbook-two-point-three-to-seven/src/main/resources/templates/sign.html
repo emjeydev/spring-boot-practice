@@ -6,8 +6,15 @@
 </head>
 <body>
     <h2 th:text="${'Speed: ' + speed}"></h2>
-    <img src="../static/img/slow-down.png" width="200" alt="SlowDown" th:if="${speed > 60}">
-    <img alt="SpeedLimit" src="../static/img/speed-limit.png" th:if="${speed < 60}">
+
+<!--    Wrokbook 2.3-->
+
+<!--    <img src="../static/img/slow-down.png" width="200" alt="SlowDown" th:if="${speed > 60}">-->
+<!--    <img alt="SpeedLimit" src="../static/img/speed-limit.png" th:if="${speed < 60}">-->
+
+
+<!--    Workbook 2.4-->
+    <img th:src="${speed > 60 ? 'img/slow-down.png' : 'img/speed-limit.png'}" width="200" alt="SlowDown">
 
 </body>
 </html>

@@ -9,7 +9,7 @@ public class SpeedController {
 
     @GetMapping("/sign")
     public String showSign(Model model) {
-        model.addAttribute("speed", 70);
+        model.addAttribute("speed", 45);
         return "sign";
     }
 }
