@@ -1,0 +1,32 @@
+
+<!--This file is made by EmJey-->
+<!--Project: Workbook 2.6-->
+<!--FileName: Car.html-->
+<!--Date: 2023/09/15-->
+<!--Email: emjeydev@gmail.com-->
+<!--Github: emjeydev-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars Information</title>
+</head>
+<body>
+
+    <h1>Dealership</h1>
+    <div th:if="${budget >= 5000}">
+        <div th:switch="${make}">
+            <p th:case="'Toyota'">Toyota Corolla: $5,000</p>
+            <p th:case="'Volkswagen'">Volkswagen Jetta: $6,000</p>
+            <p th:case="'Ford'">Ford Escape: $7,000</p>
+            <p th:case="'Honda'">Honda Civic: $8,000</p>
+            <p th:case="*">No cars match your query.</p>
+        </div>
+    </div>
+    <div th:unless="${budget >= 5000}">
+        <p>Sorry, we don't have any cars below $5,000</p>
+    </div>
+
+</body>
+</html>
