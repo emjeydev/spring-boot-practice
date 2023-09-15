@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Painting</title>
+</head>
+<body>
+
+    <div th:switch="${painting}">
+        <div th:case="'mona-lisa'">
+            <h1>Mona Lisa</h1>
+            <img src="img/mona-lisa.jpeg" width="300" alt="Mona Lisa">
+        </div>
+        <div th:case="'starry-night'">
+            <h1>Starry Night</h1>
+            <img src="img/starry-night.jpeg" width="300" alt="Starry Night">
+        </div>
+    </div>
+
+</body>
+</html>
