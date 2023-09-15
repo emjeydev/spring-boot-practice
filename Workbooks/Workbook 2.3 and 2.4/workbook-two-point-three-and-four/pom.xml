@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.emjey</groupId>
-	<artifactId>workbook-two-point-three-to-seven</artifactId>
+	<artifactId>workbook-two-point-three-and-four</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>workbook-two-point-three-to-seven</name>
-	<description>This project is for workbook 2.3 to 2.7</description>
+	<name>workbook-two-point-three-and-four</name>
+	<description>This is workbook 2.3 and 2.4</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

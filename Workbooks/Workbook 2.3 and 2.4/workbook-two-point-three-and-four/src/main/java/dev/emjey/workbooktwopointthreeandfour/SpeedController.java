@@ -1,4 +1,4 @@
-package dev.emjey.workbooktwopointthreetoseven;
+package dev.emjey.workbooktwopointthreeandfour;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
