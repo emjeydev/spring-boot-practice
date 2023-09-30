@@ -1,0 +1,35 @@
+
+<!--This file is made by EmJey-->
+<!--Project: Workbook 2.11-->
+<!--FileName: records.html-->
+<!--Date: 2023/09/30-->
+<!--Email: emjeydev@gmail.com-->
+<!--Github: emjeydev-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Record</title>
+</head>
+<body>
+
+      <h1>Sales Record</h1>
+
+        <table style="width: 100%">
+            <tr>
+                <th>Item</th>
+                <th>Revenue</th>
+                <th>Cost</th>
+                <th>Profit</th>
+            </tr>
+            <tr th:each="rc: ${records}" th:style="${rc.revenue - rc.cost >=0} ? 'background: green' : 'background: red'">
+                <td th:text="${rc.item}"></td>
+                <td th:text="${#numbers.formatCurrency(rc.revenue)}"></td>
+                <td th:text="${#numbers.formatCurrency(rc.cost)}"></td>
+                <td th:text="${#numbers.formatCurrency(rc.revenue - rc.cost)}"></td>
+            </tr>
+        </table>
+
+</body>
+</html>
