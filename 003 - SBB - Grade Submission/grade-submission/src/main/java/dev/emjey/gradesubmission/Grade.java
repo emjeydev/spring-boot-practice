@@ -1,5 +1,13 @@
 package dev.emjey.gradesubmission;
 
+// This file is made by EmJey
+// Project: Grade.java
+// FileName: RecordController.java
+// Date: 2023/09/11
+// Modified Date: 2023/10/01
+// Email: emjeydev@gmail.com
+// Github: emjeydev
+
 public class Grade {
     private String name;
     private String subject;
@@ -9,6 +17,10 @@ public class Grade {
         this.name = name;
         this.subject = subject;
         this.score = score;
+    }
+
+    public Grade() {
+
     }
 
     // Getters and Setters
@@ -34,5 +46,16 @@ public class Grade {
 
     public void setScore(String score) {
         this.score = score;
+    }
+
+
+//    This is for printing purposes. If we don't have this we can't print it.
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "name='" + name + '\'' +
+                ", subject='" + subject + '\'' +
+                ", score='" + score + '\'' +
+                '}';
     }
 }

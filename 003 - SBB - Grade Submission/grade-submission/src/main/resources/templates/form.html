@@ -1,3 +1,13 @@
+
+<!--This file is made by EmJey-->
+<!--Project: form.html-->
+<!--FileName: records.html-->
+<!--Date: 2023/09/11-->
+<!--Modified Date: 2023/10/01-->
+<!--Email: emjeydev@gmail.com-->
+<!--Github: emjeydev-->
+
+
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -89,10 +99,10 @@
     </div>   
     <div class="container">
       <h2> Grade Portal </h2>
-      <form method="post"> 
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Score">  
-        <input type="text" placeholder="Subject">
+      <form method="post" th:object="${grade}" th:action="@{/handleSubmit}">
+        <input type="text" placeholder="Name" th:field="*{name}">
+        <input type="text" placeholder="Score" th:field="*{subject}">
+        <input type="text" placeholder="Subject" th:field="*{score}">
         <br><br>
         <input type="submit" value="Submit">
       </form>  
