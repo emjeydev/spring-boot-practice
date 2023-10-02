@@ -13,7 +13,7 @@ import java.util.List;
 // Project: GradeSubmission.java
 // FileName: RecordController.java
 // Date: 2023/09/11
-// Modified Date: 2023/10/01
+// Modified Date: 2023/10/02
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
@@ -23,8 +23,8 @@ public class GradeSubmission {
     List<Grade> studentList = new ArrayList<>();
 
     @GetMapping("/")
-    public String getForm(Model model, @RequestParam(required = false) String name) {
-        int index = getGradeIndex(name);
+    public String getForm(Model model, @RequestParam(required = false) String id) {
+        int index = getGradeIndex(id);
 
         model.addAttribute("grade", index == -1000 ? new Grade() : studentList.get(index));
         return "form";
@@ -32,7 +32,7 @@ public class GradeSubmission {
 
     @PostMapping("/handleSubmit")
     public String submitForm(Grade grade) {
-        int index = getGradeIndex(grade.getName());
+        int index = getGradeIndex(grade.getId());
         if (index == -1000) {
             studentList.add(grade);
         } else {
@@ -51,9 +51,9 @@ public class GradeSubmission {
         return "grades";
     }
 
-    public Integer getGradeIndex(String name) {
+    public Integer getGradeIndex(String id) {
         for (int i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).getName().equals(name))
+            if (studentList.get(i).getId().equals(id))
                 return i;
         }
         return -1000;

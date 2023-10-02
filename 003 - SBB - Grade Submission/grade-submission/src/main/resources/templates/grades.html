@@ -3,7 +3,7 @@
 <!--Project: grades.html-->
 <!--FileName: records.html-->
 <!--Date: 2023/09/11-->
-<!--Modified Date: 2023/10/01-->
+<!--Modified Date: 2023/10/02-->
 <!--Email: emjeydev@gmail.com-->
 <!--Github: emjeydev-->
 
@@ -128,7 +128,7 @@
           <td th:text="${grade.name}"></td>
           <td th:text="${grade.subject}"></td>
           <td th:text="${grade.score}"></td>
-          <td> <a role="button" class="update" th:href="@{/(name = ${grade.name})}">Update</a> </td>
+          <td> <a role="button" class="update" th:href="@{/(id = ${grade.id})}">Update</a> </td>
         </tr>
       </table>
     </div>

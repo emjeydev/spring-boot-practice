@@ -4,14 +4,17 @@ package dev.emjey.gradesubmission;
 // Project: Grade.java
 // FileName: RecordController.java
 // Date: 2023/09/11
-// Modified Date: 2023/10/01
+// Modified Date: 2023/10/02
 // Email: emjeydev@gmail.com
 // Github: emjeydev
+
+import java.util.UUID;
 
 public class Grade {
     private String name;
     private String subject;
     private String score;
+    private String id;
 
     public Grade(String name, String subject, String score) {
         this.name = name;
@@ -20,7 +23,7 @@ public class Grade {
     }
 
     public Grade() {
-
+        this.id = UUID.randomUUID().toString();
     }
 
     // Getters and Setters
@@ -46,6 +49,14 @@ public class Grade {
 
     public void setScore(String score) {
         this.score = score;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 
