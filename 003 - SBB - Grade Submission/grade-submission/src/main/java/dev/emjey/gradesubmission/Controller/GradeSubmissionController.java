@@ -1,5 +1,8 @@
-package dev.emjey.gradesubmission;
+package dev.emjey.gradesubmission.Controller;
 
+import dev.emjey.gradesubmission.Constants;
+import dev.emjey.gradesubmission.Grade;
+import dev.emjey.gradesubmission.Repository.GradeSubmissionRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,15 +21,16 @@ import java.util.List;
 // Github: emjeydev
 
 @Controller
-public class GradeSubmission {
+public class GradeSubmissionController {
 
-    List<Grade> studentList = new ArrayList<>();
+    GradeSubmissionRepository gradeSubmissionRepository;
 
     @GetMapping("/")
     public String getForm(Model model, @RequestParam(required = false) String id) {
         int index = getGradeIndex(id);
 
-        model.addAttribute("grade", index == Constants.NOT_FOUND ? new Grade() : studentList.get(index));
+        model.addAttribute("grade", index == Constants.NOT_FOUND ? new Grade() :
+                gradeSubmissionRepository.getGrade(index));
         return "form";
     }
 
@@ -34,9 +38,9 @@ public class GradeSubmission {
     public String submitForm(Grade grade) {
         int index = getGradeIndex(grade.getId());
         if (index == Constants.NOT_FOUND) {
-            studentList.add(grade);
+            gradeSubmissionRepository.addGrade(grade);
         } else {
-            studentList.set(index, grade);
+            gradeSubmissionRepository.updateGrade(grade, index);
         }
         return "redirect:/grades";
     }
@@ -47,13 +51,13 @@ public class GradeSubmission {
 //        studentList.add(new Grade("Hermione", "Arithmancy", "A+"));
 //        studentList.add(new Grade("Neville", "Charms", "A-"));
 
-        model.addAttribute("grades", studentList);
+        model.addAttribute("grades", gradeSubmissionRepository.getGrades());
         return "grades";
     }
 
     public Integer getGradeIndex(String id) {
-        for (int i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).getId().equals(id))
+        for (int i = 0; i < gradeSubmissionRepository.getGrades().size(); i++) {
+            if (gradeSubmissionRepository.getGrades().get(i).getId().equals(id))
                 return i;
         }
         return Constants.NOT_FOUND;
