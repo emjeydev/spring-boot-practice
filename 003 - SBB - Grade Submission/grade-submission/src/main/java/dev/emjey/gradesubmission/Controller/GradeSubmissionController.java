@@ -3,8 +3,11 @@ package dev.emjey.gradesubmission.Controller;
 import dev.emjey.gradesubmission.Constants;
 import dev.emjey.gradesubmission.Grade;
 import dev.emjey.gradesubmission.Repository.GradeSubmissionRepository;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +26,7 @@ import java.util.List;
 @Controller
 public class GradeSubmissionController {
 
+    @Autowired
     GradeSubmissionRepository gradeSubmissionRepository;
 
     @GetMapping("/")
@@ -35,7 +39,9 @@ public class GradeSubmissionController {
     }
 
     @PostMapping("/handleSubmit")
-    public String submitForm(Grade grade) {
+    public String submitForm(@Valid Grade grade, BindingResult result) {
+        if (result.hasErrors())
+            return "form";
         int index = getGradeIndex(grade.getId());
         if (index == Constants.NOT_FOUND) {
             gradeSubmissionRepository.addGrade(grade);

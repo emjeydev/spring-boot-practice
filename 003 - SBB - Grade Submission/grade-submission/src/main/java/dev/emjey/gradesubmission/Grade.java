@@ -8,10 +8,14 @@ package dev.emjey.gradesubmission;
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.UUID;
 
 public class Grade {
+    @NotBlank(message = "Name cannot be blank")
     private String name;
+    @NotBlank(message = "Subject cannot be blank")
     private String subject;
     private String score;
     private String id;

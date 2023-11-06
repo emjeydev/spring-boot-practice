@@ -1,10 +1,12 @@
 package dev.emjey.gradesubmission.Repository;
 
 import dev.emjey.gradesubmission.Grade;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class GradeSubmissionRepository {
 
     private List<Grade> studentList = new ArrayList<>();
