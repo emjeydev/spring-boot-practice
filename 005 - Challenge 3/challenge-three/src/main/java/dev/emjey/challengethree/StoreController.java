@@ -14,6 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+// This file is made by EmJey
+// Project: GlobalSuperstore.java
+// FileName: StoreController.java
+// Date: 2023/11/09
+// Modified Date: 2023/11/09
+// Email: emjeydev@gmail.com
+// Github: emjeydev
+
 @Controller
 public class StoreController {
 

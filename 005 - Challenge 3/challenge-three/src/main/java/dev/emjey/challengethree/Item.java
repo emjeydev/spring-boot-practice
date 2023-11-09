@@ -9,6 +9,14 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Past;
 import org.springframework.format.annotation.DateTimeFormat;
 
+// This file is made by EmJey
+// Project: GlobalSuperstore.java
+// FileName: Item.java
+// Date: 2023/11/09
+// Modified Date: 2023/11/09
+// Email: emjeydev@gmail.com
+// Github: emjeydev
+
 public class Item {
     @NotBlank(message = "Please choose a category")
     private String category;
