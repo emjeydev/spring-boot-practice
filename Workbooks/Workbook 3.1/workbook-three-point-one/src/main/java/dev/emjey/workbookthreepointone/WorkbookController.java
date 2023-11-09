@@ -4,7 +4,7 @@ package dev.emjey.workbookthreepointone;
 // Project: WorkbookThreePointOne.java
 // FileName: WorkbookController.java
 // Date: 2023/11/06
-// Modified Date: 2023/11/06
+// Modified Date: 2023/11/09
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
@@ -30,6 +30,10 @@ public class WorkbookController {
 
     @PostMapping("/submitItem")
     public String handleSubmit(@Valid User user, BindingResult result) {
+        /* Workbook 3.2 start */
+        if (user.getLastName().equals(user.getFirstName()))
+            result.rejectValue("userName", "", "Please enter valid data");
+        /* Workbook 3.2 end */
         if (result.hasErrors())
             return "sign-up";
         return "redirect:/result";
