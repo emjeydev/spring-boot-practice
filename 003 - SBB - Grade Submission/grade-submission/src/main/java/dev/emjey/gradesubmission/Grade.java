@@ -4,7 +4,7 @@ package dev.emjey.gradesubmission;
 // Project: Grade.java
 // FileName: RecordController.java
 // Date: 2023/09/11
-// Modified Date: 2023/10/02
+// Modified Date: 2023/11/09
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
@@ -17,6 +17,7 @@ public class Grade {
     private String name;
     @NotBlank(message = "Subject cannot be blank")
     private String subject;
+    @Score(message = "Score must be a letter grade")
     private String score;
     private String id;
 
