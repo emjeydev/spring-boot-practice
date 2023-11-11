@@ -3,6 +3,7 @@ package dev.emjey.gradesubmission.Controller;
 import dev.emjey.gradesubmission.Constants;
 import dev.emjey.gradesubmission.Grade;
 import dev.emjey.gradesubmission.Repository.GradeSubmissionRepository;
+import dev.emjey.gradesubmission.Service.GradeSubmissionService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,15 +27,13 @@ import java.util.List;
 @Controller
 public class GradeSubmissionController {
 
-    @Autowired
-    GradeSubmissionRepository gradeSubmissionRepository;
+    GradeSubmissionService gradeSubmissionService = new GradeSubmissionService();
 
     @GetMapping("/")
     public String getForm(Model model, @RequestParam(required = false) String id) {
-        int index = getGradeIndex(id);
+        int index = gradeSubmissionService.getGradeIndex(id);
 
-        model.addAttribute("grade", index == Constants.NOT_FOUND ? new Grade() :
-                gradeSubmissionRepository.getGrade(index));
+        model.addAttribute("grade", gradeSubmissionService.getGradeById(id));
         return "form";
     }
 
@@ -42,12 +41,7 @@ public class GradeSubmissionController {
     public String submitForm(@Valid Grade grade, BindingResult result) {
         if (result.hasErrors())
             return "form";
-        int index = getGradeIndex(grade.getId());
-        if (index == Constants.NOT_FOUND) {
-            gradeSubmissionRepository.addGrade(grade);
-        } else {
-            gradeSubmissionRepository.updateGrade(grade, index);
-        }
+        gradeSubmissionService.submitGrade(grade);
         return "redirect:/grades";
     }
 
@@ -57,15 +51,9 @@ public class GradeSubmissionController {
 //        studentList.add(new Grade("Hermione", "Arithmancy", "A+"));
 //        studentList.add(new Grade("Neville", "Charms", "A-"));
 
-        model.addAttribute("grades", gradeSubmissionRepository.getGrades());
+        model.addAttribute("grades", gradeSubmissionService.getGrades());
         return "grades";
     }
 
-    public Integer getGradeIndex(String id) {
-        for (int i = 0; i < gradeSubmissionRepository.getGrades().size(); i++) {
-            if (gradeSubmissionRepository.getGrades().get(i).getId().equals(id))
-                return i;
-        }
-        return Constants.NOT_FOUND;
-    }
+
 }
