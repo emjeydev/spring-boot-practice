@@ -8,6 +8,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+// This file is made by EmJey
+// Project: Workbook 5.1
+// FileName: Score.java
+// Date: 2023/12/02
+// Modified Date: 2023/1/02
+// Email: emjeydev@gmail.com
+// Github: emjeydev
+
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

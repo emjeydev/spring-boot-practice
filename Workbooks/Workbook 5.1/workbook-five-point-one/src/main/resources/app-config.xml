@@ -2,9 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="choose a name for the bean" class="path to class"></bean>
+    <bean id="repositoryBeanConfig" class="emjey.dev.workbookfivepointone.repository.GradeRepository"/>
 
-
-    <bean id="choose a name for the bean" class="path to class"></bean>
+    <bean id="serviceBeanConfig" class="emjey.dev.workbookfivepointone.service.GradeService"/>
 
 </beans>
+
+
+        <!--This file is made by EmJey-->
+        <!--Project: Workbook 5.1-->
+        <!--FileName: app-config.xml-->
+        <!--Date: 2023/12/02-->
+        <!--Modified Date: 2023/12/02-->
+        <!--Email: emjeydev@gmail.com-->
+        <!--Github: emjeydev-->

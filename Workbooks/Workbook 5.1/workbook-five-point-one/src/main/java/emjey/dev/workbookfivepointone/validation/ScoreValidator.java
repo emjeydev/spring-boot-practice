@@ -6,6 +6,14 @@ import jakarta.validation.ConstraintValidatorContext;
 import java.util.Arrays;
 import java.util.List;
 
+// This file is made by EmJey
+// Project: Workbook 5.1
+// FileName: ScoreValidator.java
+// Date: 2023/12/02
+// Modified Date: 2023/1/02
+// Email: emjeydev@gmail.com
+// Github: emjeydev
+
 public class ScoreValidator implements ConstraintValidator<Score, String> {
     
     List<String> scores = Arrays.asList(

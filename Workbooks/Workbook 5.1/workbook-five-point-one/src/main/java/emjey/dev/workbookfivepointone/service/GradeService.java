@@ -6,12 +6,20 @@ import emjey.dev.workbookfivepointone.Constants;
 import emjey.dev.workbookfivepointone.pojo.Grade;
 import emjey.dev.workbookfivepointone.repository.GradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
+
+// This file is made by EmJey
+// Project: Workbook 5.1
+// FileName: GradeService.java
+// Date: 2023/12/02
+// Modified Date: 2023/1/02
+// Email: emjeydev@gmail.com
+// Github: emjeydev
 
 public class GradeService {
 
     @Autowired
-    GradeRepository gradeRepository;
+     GradeRepository gradeRepository;
     
     public Grade getGrade(int index) {
         return gradeRepository.getGrade(index);

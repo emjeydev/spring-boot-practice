@@ -6,6 +6,14 @@ import java.util.UUID;
 import emjey.dev.workbookfivepointone.validation.Score;
 import jakarta.validation.constraints.NotBlank;
 
+// This file is made by EmJey
+// Project: Workbook 5.1
+// FileName: Grade.java
+// Date: 2023/12/02
+// Modified Date: 2023/1/02
+// Email: emjeydev@gmail.com
+// Github: emjeydev
+
 public class Grade {
 
     @NotBlank(message = "Name cannot be blank")
