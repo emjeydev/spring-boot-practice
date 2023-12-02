@@ -1,13 +1,13 @@
-package com.ltp.gradesubmission.repository;
+package emjey.dev.workbookfivepointone.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import emjey.dev.workbookfivepointone.pojo.Grade;
 import org.springframework.stereotype.Repository;
 
-import com.ltp.gradesubmission.pojo.Grade;
 
-@Repository
+
 public class GradeRepository {
     
     private List<Grade> studentGrades = new ArrayList<>();

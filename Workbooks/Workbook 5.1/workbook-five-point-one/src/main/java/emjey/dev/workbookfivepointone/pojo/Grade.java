@@ -1,10 +1,10 @@
-package com.ltp.gradesubmission.pojo;
+package emjey.dev.workbookfivepointone.pojo;
 
 import java.util.UUID;
 
-import javax.validation.constraints.NotBlank;
 
-import com.ltp.gradesubmission.validation.Score;
+import emjey.dev.workbookfivepointone.validation.Score;
+import jakarta.validation.constraints.NotBlank;
 
 public class Grade {
 

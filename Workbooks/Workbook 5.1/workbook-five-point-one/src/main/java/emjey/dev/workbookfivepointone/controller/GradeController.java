@@ -1,10 +1,11 @@
-package com.ltp.gradesubmission.controller;
+package emjey.dev.workbookfivepointone.controller;
 
-import javax.validation.Valid;
 
-import com.ltp.gradesubmission.pojo.Grade;
-import com.ltp.gradesubmission.service.GradeService;
 
+
+import emjey.dev.workbookfivepointone.pojo.Grade;
+import emjey.dev.workbookfivepointone.service.GradeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

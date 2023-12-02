@@ -1,15 +1,13 @@
-package com.ltp.gradesubmission.service;
+package emjey.dev.workbookfivepointone.service;
 
 import java.util.List;
 
-import com.ltp.gradesubmission.Constants;
-import com.ltp.gradesubmission.pojo.Grade;
-import com.ltp.gradesubmission.repository.GradeRepository;
-
+import emjey.dev.workbookfivepointone.Constants;
+import emjey.dev.workbookfivepointone.pojo.Grade;
+import emjey.dev.workbookfivepointone.repository.GradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
 public class GradeService {
 
     @Autowired
