@@ -1,5 +1,7 @@
 package dev.emjey.challengefive;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ import java.util.List;
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
+@Repository
 public class StoreRepository {
     
     private List<Item> items = new ArrayList<>();
