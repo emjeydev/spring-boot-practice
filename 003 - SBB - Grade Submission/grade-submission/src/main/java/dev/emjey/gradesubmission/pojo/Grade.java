@@ -1,13 +1,14 @@
-package dev.emjey.gradesubmission;
+package dev.emjey.gradesubmission.pojo;
 
 // This file is made by EmJey
 // Project: Grade.java
 // FileName: RecordController.java
 // Date: 2023/09/11
-// Modified Date: 2023/11/09
+// Modified Date: 2023/12/04
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
+import dev.emjey.gradesubmission.validation.Score;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.UUID;

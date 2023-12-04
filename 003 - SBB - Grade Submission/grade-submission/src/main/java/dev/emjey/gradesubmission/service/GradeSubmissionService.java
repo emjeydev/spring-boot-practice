@@ -1,11 +1,18 @@
-package dev.emjey.gradesubmission.Service;
+package dev.emjey.gradesubmission.service;
 
 import dev.emjey.gradesubmission.Constants;
-import dev.emjey.gradesubmission.Grade;
-import dev.emjey.gradesubmission.Repository.GradeSubmissionRepository;
+import dev.emjey.gradesubmission.pojo.Grade;
+import dev.emjey.gradesubmission.repository.GradeSubmissionRepository;
 
-import java.util.ArrayList;
 import java.util.List;
+
+// This file is made by EmJey
+// Project: Grade.java
+// FileName: GradeSubmissionService.java
+// Date: 2023/09/11
+// Modified Date: 2023/12/04
+// Email: emjeydev@gmail.com
+// Github: emjeydev
 
 public class GradeSubmissionService {
 

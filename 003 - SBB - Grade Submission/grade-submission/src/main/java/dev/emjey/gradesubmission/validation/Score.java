@@ -1,4 +1,4 @@
-package dev.emjey.gradesubmission;
+package dev.emjey.gradesubmission.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 // Project: GradeSubmission.java
 // FileName: Score.java
 // Date: 2023/11/09
-// Modified Date: 2023/11/09
+// Modified Date: 2023/12/04
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 

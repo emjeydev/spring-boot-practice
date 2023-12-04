@@ -1,4 +1,4 @@
-package dev.emjey.gradesubmission;
+package dev.emjey.gradesubmission.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
@@ -10,7 +10,7 @@ import java.util.List;
 // Project: GradeSubmission.java
 // FileName: ScoreValidator.java
 // Date: 2023/11/09
-// Modified Date: 2023/11/09
+// Modified Date: 2023/12/04
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 

@@ -1,11 +1,8 @@
-package dev.emjey.gradesubmission.Controller;
+package dev.emjey.gradesubmission.controller;
 
-import dev.emjey.gradesubmission.Constants;
-import dev.emjey.gradesubmission.Grade;
-import dev.emjey.gradesubmission.Repository.GradeSubmissionRepository;
-import dev.emjey.gradesubmission.Service.GradeSubmissionService;
+import dev.emjey.gradesubmission.pojo.Grade;
+import dev.emjey.gradesubmission.service.GradeSubmissionService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,14 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.List;
-
 // This file is made by EmJey
 // Project: GradeSubmission.java
 // FileName: RecordController.java
 // Date: 2023/09/11
-// Modified Date: 2023/10/02
+// Modified Date: 2023/12/04
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 

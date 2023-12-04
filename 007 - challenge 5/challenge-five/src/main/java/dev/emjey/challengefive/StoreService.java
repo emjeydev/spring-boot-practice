@@ -20,7 +20,7 @@ public class StoreService {
 
 
     StoreRepository storeRepository;
-    
+
     StoreService(StoreRepository storeRepository) {
         this.storeRepository = storeRepository;
     }
