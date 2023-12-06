@@ -26,6 +26,7 @@ public class Grade {
         this.name = name;
         this.subject = subject;
         this.score = score;
+        this.id = UUID.randomUUID().toString();
     }
 
     public Grade() {
@@ -66,7 +67,7 @@ public class Grade {
     }
 
 
-//    This is for printing purposes. If we don't have this we can't print it.
+    //    This is for printing purposes. If we don't have this we can't print it.
     @Override
     public String toString() {
         return "Grade{" +
