@@ -1,0 +1,42 @@
+package dev.emjey.contacts.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import dev.emjey.contacts.pojo.Contact;
+import org.springframework.stereotype.Repository;
+
+// This file is made by EmJey
+// Project: contacts
+// FileName: ContactRepository.java
+// Date: 2023/12/11
+// Modified Date: 2023/12/11
+// Email: emjeydev@gmail.com
+// Github: emjeydev
+
+@Repository
+public class ContactRepository {
+    
+    private List<Contact> contacts = new ArrayList<>();
+
+    public List<Contact> getContacts() {
+        return contacts;
+    }
+
+    public Contact getContact(int index) {
+        return contacts.get(index);
+    }
+
+    public void saveContact(Contact contact) {
+        contacts.add(contact);
+    }
+
+    public void updateContact(int index, Contact contact) { 
+        contacts.set(index, contact); 
+    }
+    
+    public void deleteContact(int index) {
+        contacts.remove(index);
+    }
+
+}
