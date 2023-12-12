@@ -1,5 +1,6 @@
 package dev.emjey.workbookeightpointone.service;
 
+import dev.emjey.workbookeightpointone.exception.NoContactException;
 import dev.emjey.workbookeightpointone.pojo.Contact;
 
 import java.util.List;
@@ -14,9 +15,9 @@ import java.util.List;
 // Github: emjeydev
 
 public interface ContactService {
-    Contact getContactById(String id);
+    Contact getContactById(String id) throws NoContactException;
     void saveContact(Contact contact);
-    void updateContact(String id, Contact contact);
-    void deleteContact(String id);
+    void updateContact(String id, Contact contact) throws NoContactException;
+    void deleteContact(String id) throws NoContactException;
     List<Contact> getContacts();
 }

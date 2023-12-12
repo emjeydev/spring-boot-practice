@@ -2,6 +2,7 @@ package dev.emjey.workbookeightpointone.web;
 
 import java.util.List;
 
+import dev.emjey.workbookeightpointone.exception.NoContactException;
 import dev.emjey.workbookeightpointone.pojo.Contact;
 import dev.emjey.workbookeightpointone.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,12 @@ public class ContactController {
 
     @GetMapping("/contact/{id}")
     public ResponseEntity<Contact> getContact(@PathVariable String id) {
-        Contact contact = contactService.getContactById(id);
-        return new ResponseEntity<>(contact, HttpStatus.OK);
+        try {
+            Contact contact = contactService.getContactById(id);
+            return new ResponseEntity<>(contact, HttpStatus.OK);
+        } catch (NoContactException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
     
     @PostMapping("/contact")
@@ -51,14 +56,22 @@ public class ContactController {
 
     @PutMapping("/contact/{id}")
     public ResponseEntity<Contact> updateContact(@PathVariable String id, @RequestBody Contact contact) {
-        contactService.updateContact(id, contact);   
-        return new ResponseEntity<Contact>(contactService.getContactById(id), HttpStatus.OK);
+        try {
+            contactService.updateContact(id, contact);
+            return new ResponseEntity<Contact>(contactService.getContactById(id), HttpStatus.OK);
+        } catch (NoContactException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/contact/{id}")
     public ResponseEntity<HttpStatus> deleteContact(@PathVariable String id) {
-        contactService.deleteContact(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        try {
+            contactService.deleteContact(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (NoContactException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 
