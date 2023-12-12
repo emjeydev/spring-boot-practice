@@ -6,7 +6,6 @@ import java.util.List;
 import dev.emjey.workbookeightpointthree.pojo.Contact;
 import org.springframework.stereotype.Repository;
 
-
 // This file is made by EmJey
 // Project: Workbook 8.2
 // FileName: ContactRepository.java

@@ -3,11 +3,11 @@ package dev.emjey.workbookeightpointthree.service;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import dev.emjey.workbookeightpointthree.exception.ContactNotFoundException;
 import dev.emjey.workbookeightpointthree.pojo.Contact;
 import dev.emjey.workbookeightpointthree.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 // This file is made by EmJey
 // Project: Workbook 8.2
@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 // Modified Date: 2023/12/12
 // Email: emjeydev@gmail.com
 // Github: emjeydev
-
 
 @Service
 public class ContactServiceImpl implements ContactService {
@@ -41,7 +40,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void deleteContact(String id) {
-        contactRepository.deleteContact(findIndexById(id)); 
+        contactRepository.deleteContact(findIndexById(id));
     }
 
     @Override
@@ -52,9 +51,9 @@ public class ContactServiceImpl implements ContactService {
 
     private int findIndexById(String id) {
         return IntStream.range(0, contactRepository.getContacts().size())
-            .filter(index -> contactRepository.getContacts().get(index).getId().equals(id))
-            .findFirst()
-            .orElseThrow();
+                .filter(index -> contactRepository.getContacts().get(index).getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new ContactNotFoundException(id));
     }
 
 }

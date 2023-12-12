@@ -1,5 +1,7 @@
 package dev.emjey.workbookeightpointthree.pojo;
 
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.UUID;
 
 // This file is made by EmJey
@@ -13,7 +15,11 @@ import java.util.UUID;
 public class Contact {
 
     private String id;
+
+    @NotBlank(message = "Name cannot be blank")
     private String name;
+
+    @NotBlank(message = "Phone number cannot be blank")
     private String phoneNumber;
 
 
