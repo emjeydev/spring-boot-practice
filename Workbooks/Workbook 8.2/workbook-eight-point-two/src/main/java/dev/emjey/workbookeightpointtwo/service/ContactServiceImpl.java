@@ -3,6 +3,7 @@ package dev.emjey.workbookeightpointtwo.service;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import dev.emjey.workbookeightpointtwo.exception.ContactNotFoundException;
 import dev.emjey.workbookeightpointtwo.pojo.Contact;
 import dev.emjey.workbookeightpointtwo.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void deleteContact(String id) {
-        contactRepository.deleteContact(findIndexById(id)); 
+        contactRepository.deleteContact(findIndexById(id));
     }
 
     @Override
@@ -52,9 +53,9 @@ public class ContactServiceImpl implements ContactService {
 
     private int findIndexById(String id) {
         return IntStream.range(0, contactRepository.getContacts().size())
-            .filter(index -> contactRepository.getContacts().get(index).getId().equals(id))
-            .findFirst()
-            .orElseThrow();
+                .filter(index -> contactRepository.getContacts().get(index).getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new ContactNotFoundException(id));
     }
 
 }
