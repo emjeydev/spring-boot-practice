@@ -1,7 +1,8 @@
 package dev.emjey.challengesix.pojo;
 
-import jakarta.validation.constraints.NotBlank;
 
+
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 
