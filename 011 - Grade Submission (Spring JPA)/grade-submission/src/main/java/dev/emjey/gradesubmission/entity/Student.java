@@ -1,6 +1,10 @@
 package dev.emjey.gradesubmission.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
@@ -9,13 +13,17 @@ import java.time.LocalDate;
 // Project: GradeSubmission - Spring JPA
 // FileName: Student.java
 // Date: 2024/01/27
-// Modified Date: 2024/01/27
+// Modified Date: 2024/02/11
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
 
 @Entity
 @Table(name = "student")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Student {
 
     @Id
@@ -28,29 +36,5 @@ public class Student {
 
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDate getBirthDate() {
-        return this.birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
 
 }
