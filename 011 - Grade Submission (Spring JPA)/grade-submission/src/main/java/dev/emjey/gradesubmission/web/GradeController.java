@@ -3,6 +3,8 @@ package dev.emjey.gradesubmission.web;
 import java.util.List;
 
 import dev.emjey.gradesubmission.entity.Grade;
+import dev.emjey.gradesubmission.service.GradeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,22 +21,25 @@ import org.springframework.web.bind.annotation.RestController;
 // Project: GradeSubmission - Spring JPA
 // FileName: GradeController.java
 // Date: 2024/01/27
-// Modified Date: 2024/01/27
+// Modified Date: 2024/02/11
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
 @RestController
 @RequestMapping("/grade")
 public class GradeController {
-    
+
+    @Autowired
+    GradeService gradeService;
+
     @GetMapping("/student/{studentId}/course/{courseId}")
     public ResponseEntity<Grade> getGrade(@PathVariable Long studentId, @PathVariable Long courseId) {
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(gradeService.getGrade(studentId, courseId), HttpStatus.OK);
     }
 
     @PostMapping("/student/{studentId}/course/{courseId}")
     public ResponseEntity<Grade> saveGrade(@RequestBody Grade grade, @PathVariable Long studentId, @PathVariable Long courseId) {
-        return new ResponseEntity<>(grade, HttpStatus.CREATED);
+        return new ResponseEntity<>(gradeService.saveGrade(grade, studentId, courseId), HttpStatus.CREATED);
     }
 
     @PutMapping("/student/{studentId}/course/{courseId}")
