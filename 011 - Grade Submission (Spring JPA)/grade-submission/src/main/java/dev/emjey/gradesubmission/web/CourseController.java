@@ -1,6 +1,7 @@
 package dev.emjey.gradesubmission.web;
 
 import dev.emjey.gradesubmission.entity.Course;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,10 +19,11 @@ import java.util.List;
 // Project: GradeSubmission - Spring JPA
 // FileName: CourseController.java
 // Date: 2024/01/27
-// Modified Date: 2024/01/27
+// Modified Date: 2024/04/13
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/course")
 public class CourseController {

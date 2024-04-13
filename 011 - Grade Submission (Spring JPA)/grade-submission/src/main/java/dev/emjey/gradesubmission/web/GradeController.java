@@ -7,6 +7,7 @@ import dev.emjey.gradesubmission.entity.Student;
 import dev.emjey.gradesubmission.repository.StudentRepository;
 import dev.emjey.gradesubmission.service.GradeService;
 import dev.emjey.gradesubmission.service.StudentService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,14 +29,13 @@ import org.springframework.web.bind.annotation.RestController;
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/grade")
 public class GradeController {
 
-    @Autowired
     GradeService gradeService;
 
-    @Autowired
     StudentRepository studentRepository;
 
     @GetMapping("/student/{studentId}/course/{courseId}")

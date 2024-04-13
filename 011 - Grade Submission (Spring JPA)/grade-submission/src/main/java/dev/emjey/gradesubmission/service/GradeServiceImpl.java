@@ -4,6 +4,7 @@ import dev.emjey.gradesubmission.entity.Grade;
 import dev.emjey.gradesubmission.entity.Student;
 import dev.emjey.gradesubmission.repository.GradeRepository;
 import dev.emjey.gradesubmission.repository.StudentRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,18 +14,17 @@ import java.util.List;
 // Project: GradeSubmission - Spring JPA
 // FileName: GradeServiceImpl.java
 // Date: 2024/01/27
-// Modified Date: 2024/02/11
+// Modified Date: 2024/04/13
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
 
+@AllArgsConstructor
 @Service
 public class GradeServiceImpl implements GradeService {
 
-    @Autowired
     GradeRepository gradeRepository;
 
-    @Autowired
     StudentRepository studentRepository;
     
     @Override

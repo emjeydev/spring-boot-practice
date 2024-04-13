@@ -2,6 +2,7 @@ package dev.emjey.gradesubmission.web;
 
 import dev.emjey.gradesubmission.entity.Student;
 import dev.emjey.gradesubmission.service.StudentService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,16 +21,16 @@ import java.util.List;
 // Project: GradeSubmission - Spring JPA
 // FileName: StudentController.java
 // Date: 2024/01/27
-// Modified Date: 2024/02/11
+// Modified Date: 2024/04/13
 // Email: emjeydev@gmail.com
 // Github: emjeydev
 
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/student")
 public class StudentController {
 
-    @Autowired
     StudentService studentService;
 
     @GetMapping("/{id}")
