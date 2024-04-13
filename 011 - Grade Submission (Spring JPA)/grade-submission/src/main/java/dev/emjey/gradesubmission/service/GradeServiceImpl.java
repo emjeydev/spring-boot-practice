@@ -1,7 +1,9 @@
 package dev.emjey.gradesubmission.service;
 
+import dev.emjey.gradesubmission.entity.Course;
 import dev.emjey.gradesubmission.entity.Grade;
 import dev.emjey.gradesubmission.entity.Student;
+import dev.emjey.gradesubmission.repository.CourseRepository;
 import dev.emjey.gradesubmission.repository.GradeRepository;
 import dev.emjey.gradesubmission.repository.StudentRepository;
 import lombok.AllArgsConstructor;
@@ -26,16 +28,20 @@ public class GradeServiceImpl implements GradeService {
     GradeRepository gradeRepository;
 
     StudentRepository studentRepository;
+
+    CourseRepository courseRepository;
     
     @Override
     public Grade getGrade(Long studentId, Long courseId) {
-        return gradeRepository.findByStudentId(studentId);
+        return gradeRepository.findByStudentIdAndCourseId(studentId, courseId);
     }
 
     @Override
     public Grade saveGrade(Grade grade, Long studentId, Long courseId) {
         Student student = studentRepository.findById(studentId).get();
+        Course course = courseRepository.findById(courseId).get();
         grade.setStudent(student);
+        grade.setCourse(course);
         return gradeRepository.save(grade);
     }
 
