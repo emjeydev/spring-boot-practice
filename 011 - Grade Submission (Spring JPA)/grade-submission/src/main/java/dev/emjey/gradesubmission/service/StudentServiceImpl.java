@@ -1,20 +1,23 @@
 package dev.emjey.gradesubmission.service;
 
 import dev.emjey.gradesubmission.entity.Student;
+import dev.emjey.gradesubmission.exception.StudentNotFoundException;
 import dev.emjey.gradesubmission.repository.StudentRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-// This file is made by EmJey
-// Project: GradeSubmission - Spring JPA
-// FileName: StudentServiceImpl.java
-// Date: 2024/01/27
-// Modified Date: 2024/04/13
-// Email: emjeydev@gmail.com
-// Github: emjeydev
+/**
+ * This file is made by EmJey
+ * Project: GradeSubmission - Spring JPA
+ * FileName: StudentServiceImpl.java
+ * Date: 2024/01/27
+ * Modified Date: 2024/10/20
+ * Email: emjeydev@gmail.com
+ * GitHub: emjeydev
+ */
 
 @AllArgsConstructor
 @Service
@@ -24,7 +27,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudent(Long id) {
-        return studentRepository.findById(id).get();
+        Optional<Student> student = studentRepository.findById(id);
+        if (student.isPresent()) {
+            return student.get();
+        } else {
+            throw new StudentNotFoundException(id);
+        }
     }
 
     @Override

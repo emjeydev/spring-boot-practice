@@ -1,19 +1,23 @@
 package dev.emjey.gradesubmission.service;
 
+import dev.emjey.gradesubmission.exception.CourseNotFoundException;
 import dev.emjey.gradesubmission.entity.Course;
 import dev.emjey.gradesubmission.repository.CourseRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-// This file is made by EmJey
-// Project: GradeSubmission - Spring JPA
-// FileName: CourseServiceImpl.java
-// Date: 2024/01/27
-// Modified Date: 2024/04/13
-// Email: emjeydev@gmail.com
-// Github: emjeydev
+/**
+ * This file is made by EmJey
+ * Project: GradeSubmission - Spring JPA
+ * FileName: CourseServiceImpl.java
+ * Date: 2024/01/27
+ * Modified Date: 2024/10/20
+ * Email: emjeydev@gmail.com
+ * GitHub: emjeydev
+ */
 
 @AllArgsConstructor
 @Service
@@ -23,7 +27,12 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Course getCourse(Long id) {
-        return courseRepository.findById(id).get();
+        Optional<Course> course = courseRepository.findById(id);
+        if (course.isPresent()) {
+            return course.get();
+        } else {
+            throw new CourseNotFoundException(id);
+        }
     }
 
     @Override
