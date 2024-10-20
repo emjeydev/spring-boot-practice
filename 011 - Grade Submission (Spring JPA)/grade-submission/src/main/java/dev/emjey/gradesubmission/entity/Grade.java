@@ -3,20 +3,24 @@ package dev.emjey.gradesubmission.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-// This file is made by EmJey
-// Project: GradeSubmission - Spring JPA
-// FileName: Grade.java
-// Date: 2024/01/27
-// Modified Date: 2024/02/11
-// Email: emjeydev@gmail.com
-// Github: emjeydev
+/**
+ * This file is made by EmJey
+ * Project: GradeSubmission - Spring JPA
+ * FileName: Grade.java
+ * Date: 2024/01/27
+ * Modified Date: 2024/10/20
+ * Email: emjeydev@gmail.com
+ * GitHub: emjeydev
+ */
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "grade")
+@Table(name = "grade", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"student_id", "course_id"})
+})
 public class Grade {
 
     @Id
