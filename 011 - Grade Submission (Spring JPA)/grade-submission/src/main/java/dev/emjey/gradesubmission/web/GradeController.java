@@ -21,13 +21,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-// This file is made by EmJey
-// Project: GradeSubmission - Spring JPA
-// FileName: GradeController.java
-// Date: 2024/01/27
-// Modified Date: 2024/04/13
-// Email: emjeydev@gmail.com
-// Github: emjeydev
+/**
+ * This file is made by EmJey
+ * Project: GradeSubmission - Spring JPA
+ * FileName: GradeController.java
+ * Date: 2024/01/27
+ * Modified Date: 2024/10/20
+ * Email: emjeydev@gmail.com
+ * GitHub: emjeydev
+ */
 
 @AllArgsConstructor
 @RestController
@@ -57,22 +59,23 @@ public class GradeController {
 
     @DeleteMapping("/student/{studentId}/course/{courseId}")
     public ResponseEntity<HttpStatus> deleteGrade(@PathVariable Long studentId, @PathVariable Long courseId) {
+        gradeService.deleteGrade(studentId, courseId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/student/{studentId}")
     public ResponseEntity<List<Grade>> getStudentGrades(@PathVariable Long studentId) {
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(gradeService.getStudentGrades(studentId), HttpStatus.OK);
     }
 
     @GetMapping("/course/{courseId}")
     public ResponseEntity<List<Grade>> getCourseGrades(@PathVariable Long courseId) {
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(gradeService.getCourseGrades(courseId), HttpStatus.OK);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<Grade>> getGrades() {
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(gradeService.getAllGrades(), HttpStatus.OK);
     }
 
 }
