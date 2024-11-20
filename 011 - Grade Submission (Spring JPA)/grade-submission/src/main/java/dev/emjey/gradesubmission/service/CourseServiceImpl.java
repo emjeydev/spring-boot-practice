@@ -1,20 +1,23 @@
 package dev.emjey.gradesubmission.service;
 
+import dev.emjey.gradesubmission.entity.Student;
 import dev.emjey.gradesubmission.exception.CourseNotFoundException;
 import dev.emjey.gradesubmission.entity.Course;
 import dev.emjey.gradesubmission.repository.CourseRepository;
+import dev.emjey.gradesubmission.repository.StudentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * This file is made by EmJey
  * Project: GradeSubmission - Spring JPA
  * FileName: CourseServiceImpl.java
  * Date: 2024/01/27
- * Modified Date: 2024/10/20
+ * Modified Date: 2024/11/21
  * Email: emjeydev@gmail.com
  * GitHub: emjeydev
  */
@@ -24,6 +27,7 @@ import java.util.Optional;
 public class CourseServiceImpl implements CourseService {
 
     CourseRepository courseRepository;
+    StudentRepository studentRepository;
 
     @Override
     public Course getCourse(Long id) {
@@ -44,6 +48,21 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<Course> getCourses() {
         return (List<Course>) courseRepository.findAll();
+    }
+
+    @Override
+    public Course addStudentToCourse(Long studentId, Long courseId) {
+        Course course = getCourse(courseId);
+        Optional<Student> student = studentRepository.findById(studentId);
+        Student unwrappedStudent = StudentServiceImpl.unwrapStudent(student, studentId);
+        course.getStudents().add(unwrappedStudent);
+        return courseRepository.save(course);
+    }
+
+    @Override
+    public Set<Student> getEnrolledStudents(Long courseId) {
+        Course course = getCourse(courseId);
+        return course.getStudents();
     }
 
     static Course unwrapCourse(Optional<Course> entity, Long id) {

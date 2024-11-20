@@ -1,5 +1,6 @@
 package dev.emjey.gradesubmission.entity;
 
+import dev.emjey.gradesubmission.validation.Score;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,7 @@ import lombok.*;
  * Project: GradeSubmission - Spring JPA
  * FileName: Grade.java
  * Date: 2024/01/27
- * Modified Date: 2024/10/20
+ * Modified Date: 2024/11/21
  * Email: emjeydev@gmail.com
  * GitHub: emjeydev
  */
@@ -28,6 +29,7 @@ public class Grade {
     @Column(name = "id")
     private Long id;
 
+    @Score
     @Column(name = "score", nullable = false)
     private String score;
 

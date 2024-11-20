@@ -1,28 +1,27 @@
 package dev.emjey.gradesubmission.web;
 
 import dev.emjey.gradesubmission.entity.Course;
+import dev.emjey.gradesubmission.entity.Student;
 import dev.emjey.gradesubmission.service.CourseService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 
-// This file is made by EmJey
-// Project: GradeSubmission - Spring JPA
-// FileName: CourseController.java
-// Date: 2024/01/27
-// Modified Date: 2024/04/13
-// Email: emjeydev@gmail.com
-// Github: emjeydev
+/**
+ * This file is made by EmJey
+ * Project: GradeSubmission - Spring JPA
+ * FileName: CourseController.java
+ * Date: 2024/01/27
+ * Modified Date: 2024/11/21
+ * Email: emjeydev@gmail.com
+ * GitHub: emjeydev
+ */
 
 @AllArgsConstructor
 @RestController
@@ -33,11 +32,11 @@ public class CourseController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Course> getCourse(@PathVariable Long id) {
-        return new ResponseEntity<>(courseService.getCourse(id),HttpStatus.OK);
+        return new ResponseEntity<>(courseService.getCourse(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Course> saveCourse(@RequestBody Course course) {
+    public ResponseEntity<Course> saveCourse(@Valid @RequestBody Course course) {
         return new ResponseEntity<>(courseService.saveCourse(course), HttpStatus.CREATED);
     }
 
@@ -50,6 +49,16 @@ public class CourseController {
     @GetMapping("/all")
     public ResponseEntity<List<Course>> getCourses() {
         return new ResponseEntity<>(courseService.getCourses(), HttpStatus.OK);
+    }
+
+    @PutMapping("/{courseId}/student/{studentId}")
+    public ResponseEntity<Course> enrollStudentToCourse(@PathVariable Long courseId, @PathVariable Long studentId) {
+        return new ResponseEntity<>(courseService.addStudentToCourse(studentId, courseId), HttpStatus.OK);
+    }
+
+    @GetMapping("/{courseId}/students")
+    public ResponseEntity<Set<Student>> getEnrolledStudents(@PathVariable Long courseId) {
+        return new ResponseEntity<>(courseService.getEnrolledStudents(courseId), HttpStatus.OK);
     }
 
 }

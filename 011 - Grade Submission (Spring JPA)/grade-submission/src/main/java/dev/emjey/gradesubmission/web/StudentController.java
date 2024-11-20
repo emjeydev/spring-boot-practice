@@ -1,7 +1,9 @@
 package dev.emjey.gradesubmission.web;
 
+import dev.emjey.gradesubmission.entity.Course;
 import dev.emjey.gradesubmission.entity.Student;
 import dev.emjey.gradesubmission.service.StudentService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,15 +17,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 
-// This file is made by EmJey
-// Project: GradeSubmission - Spring JPA
-// FileName: StudentController.java
-// Date: 2024/01/27
-// Modified Date: 2024/04/13
-// Email: emjeydev@gmail.com
-// Github: emjeydev
+/**
+ * This file is made by EmJey
+ * Project: GradeSubmission - Spring JPA
+ * FileName: StudentController.java
+ * Date: 2024/01/27
+ * Modified Date: 2024/11/21
+ * Email: emjeydev@gmail.com
+ * GitHub: emjeydev
+ */
 
 
 @AllArgsConstructor
@@ -39,7 +44,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> saveStudent(@RequestBody Student student) {
+    public ResponseEntity<Student> saveStudent(@Valid @RequestBody Student student) {
         return new ResponseEntity<>(studentService.saveStudent(student), HttpStatus.CREATED);
     }
 
@@ -54,5 +59,8 @@ public class StudentController {
         return new ResponseEntity<>(studentService.getStudents(), HttpStatus.OK);
     }
 
-
+    @GetMapping("/{id}/courses")
+    public ResponseEntity<Set<Course>> getEnrolledCourses(@PathVariable Long id) {
+        return new ResponseEntity<>(studentService.getEnrolledCourses(id), HttpStatus.OK);
+    }
 }

@@ -1,5 +1,6 @@
 package dev.emjey.gradesubmission.service;
 
+import dev.emjey.gradesubmission.entity.Course;
 import dev.emjey.gradesubmission.entity.Student;
 import dev.emjey.gradesubmission.exception.StudentNotFoundException;
 import dev.emjey.gradesubmission.repository.StudentRepository;
@@ -8,13 +9,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * This file is made by EmJey
  * Project: GradeSubmission - Spring JPA
  * FileName: StudentServiceImpl.java
  * Date: 2024/01/27
- * Modified Date: 2024/10/20
+ * Modified Date: 2024/11/21
  * Email: emjeydev@gmail.com
  * GitHub: emjeydev
  */
@@ -44,6 +46,12 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> getStudents() {
         return (List<Student>) studentRepository.findAll();
+    }
+
+    @Override
+    public Set<Course> getEnrolledCourses(Long id) {
+        Student student = getStudent(id);
+        return student.getCourses();
     }
 
     static Student unwrapStudent(Optional<Student> entity, Long id) {

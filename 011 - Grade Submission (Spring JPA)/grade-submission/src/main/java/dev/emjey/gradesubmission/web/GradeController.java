@@ -7,6 +7,7 @@ import dev.emjey.gradesubmission.entity.Student;
 import dev.emjey.gradesubmission.repository.StudentRepository;
 import dev.emjey.gradesubmission.service.GradeService;
 import dev.emjey.gradesubmission.service.StudentService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Project: GradeSubmission - Spring JPA
  * FileName: GradeController.java
  * Date: 2024/01/27
- * Modified Date: 2024/10/20
+ * Modified Date: 2024/11/21
  * Email: emjeydev@gmail.com
  * GitHub: emjeydev
  */
@@ -46,14 +47,14 @@ public class GradeController {
     }
 
     @PostMapping("/student/{studentId}/course/{courseId}")
-    public ResponseEntity<Grade> saveGrade(@RequestBody Grade grade, @PathVariable Long studentId, @PathVariable Long courseId) {
+    public ResponseEntity<Grade> saveGrade(@Valid @RequestBody Grade grade, @PathVariable Long studentId, @PathVariable Long courseId) {
         Student student = studentRepository.findById(studentId).get();
         grade.setStudent(student);
         return new ResponseEntity<>(gradeService.saveGrade(grade, studentId, courseId), HttpStatus.CREATED);
     }
 
     @PutMapping("/student/{studentId}/course/{courseId}")
-    public ResponseEntity<Grade> updateGrade(@RequestBody Grade grade, @PathVariable Long studentId, @PathVariable Long courseId) {
+    public ResponseEntity<Grade> updateGrade(@Valid @RequestBody Grade grade, @PathVariable Long studentId, @PathVariable Long courseId) {
         return new ResponseEntity<>(gradeService.updateGrade(grade.getScore(), studentId, courseId), HttpStatus.OK);
     }
 
