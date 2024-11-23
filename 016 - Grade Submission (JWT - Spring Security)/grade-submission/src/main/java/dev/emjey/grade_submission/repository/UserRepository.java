@@ -3,6 +3,8 @@ package dev.emjey.grade_submission.repository;
 import dev.emjey.grade_submission.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Optional;
+
 /**
  * This file is made by EmJey
  * Project: GradeSubmission - Spring Security JWT
@@ -15,5 +17,5 @@ import org.springframework.data.repository.CrudRepository;
 
 
 public interface UserRepository extends CrudRepository<User, Long> {
-	User findByUsername(String username);
+    Optional<User> findByUsername(String username);
 }

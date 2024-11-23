@@ -15,6 +15,6 @@ import dev.emjey.grade_submission.entity.User;
 
 public interface UserService {
     User getUser(Long id);
-
+    User getUser(String username);
     User saveUser(User user);
 }
